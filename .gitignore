@@ -1,0 +1,5 @@
+node_modules/
+species.txt
+species.csv
+shortspecies.csv
+csvToJson.js
