@@ -12,6 +12,7 @@ class FeaturedPlant extends Component {
       search: "",
       holdingArr: [],
     };
+    this.inputRef = React.createRef();
   }
   componentDidMount() {
     axios.get("/api/initial/").then((res) => {
@@ -22,17 +23,33 @@ class FeaturedPlant extends Component {
   }
 
   handleInput = (e) => {
-    this.setState({ search: e.target.value });
+    e.preventDefault();
+    let search = this.inputRef.current.value;
+    this.setState({
+      ...this.state,
+      search: search,
+    });
+    console.log(search);
     axios
-      .get(`/api/featured?search=${e.target.value}`)
+      .get(`/api/featured?search=${search}`)
       .then((res) => {
-        this.setState({ holdingArr: res.data });
+        this.setState({ 
+          ...this.state,
+          holdingArr: res.data
+      });
       })
       .catch((error) => console.log(error));
   };
 
+  //   changeHandler(e){
+  //     this.setState({
+  //         [e.target.name]: e.target.value
+  //     })
+  // }
+
   render() {
     //destructure
+
     let display = [];
     display = this.state.holdingArr.map((species) => (
       <div>
@@ -43,14 +60,17 @@ class FeaturedPlant extends Component {
           width="200"
           alt=""
         />
-        <GrowthInfo key={species.id+=3} species={species} />
-        <SoilProfile key={species.id+=1} species={species} />
-        <Specifications key={species.id+=2} species={species} />
+        <GrowthInfo key={(species.id += 3)} species={species} />
+        <SoilProfile key={(species.id += 1)} species={species} />
+        <Specifications key={(species.id += 2)} species={species} />
       </div>
     ));
     return (
-      <div className = 'box'>
-        <input value={this.state.search} onChange={this.handleInput} />
+      <div className="box">
+        <form onSubmit={(e) => this.handleInput(e)}>
+          <input ref={this.inputRef} name="name" type="text" />
+          <input type="submit" value="submit" />
+        </form>
         {display}
       </div>
     );
