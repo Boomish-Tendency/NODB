@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const Header = () => {
-    return (
-        <header>Plant Profile</header>
-    )
-}
+  return <header>My Plant Profiler</header>;
+};
 
-export default Header
+export default Header;

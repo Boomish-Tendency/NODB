@@ -2,6 +2,9 @@ const PlantList = require("./species.json");
 const myHousePlants = []; //empty array for saving favorite plants.
 
 module.exports = {
+  getInitial: (req, res) => {
+    res.status(200).send([PlantList[0]]);
+  },
   getStarterPlants: (req, res) => {
     //initialize empty array for results
     const starterSampleArr = [];
@@ -14,14 +17,14 @@ module.exports = {
   },
   getOnePlant: (req, res) => {
     //destructure
-    const { id } = req.params;
-    const findPlant = PlantList.find((plant) => plant.id === +id);
+    const { search } = req.query;
 
+    const findPlant = PlantList.find((plant) => plant.common_name === search);
     if (!findPlant) {
-      return res.status(404).send("Error: Plant not found.");
+      res.status(404).send("Error: Plant Not Found.");
     }
-
     res.status(200).send(findPlant);
+
     //Using .find on species.json array to send a plant that matches the object found by the search input.
   },
   addToHouse: (req, res) => {
