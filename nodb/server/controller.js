@@ -52,10 +52,10 @@ module.exports = {
     res.status(200).send(myHousePlants);
     //Adds a input value to the "room" property to selected object from myHousePlants array.  Plants in the same room should be grouped by similar light or temperature requirements.
   },
-  getMyHousePlants: (req, res) => {
-    res.status(200).send(myHousePlants);
-    //Returns MyHousePlants array
-  },
+  // getMyHousePlants: (req, res) => {
+  //   res.status(200).send(myHousePlants);
+  //   //Returns MyHousePlants array
+  // },
   getPlantsByRoom: (req, res) => {
     //destructure
     const { input } = req.query;

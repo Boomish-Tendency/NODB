@@ -10,16 +10,16 @@ const SoilProfile = (props) => {
   } = props.species;
   return (
     <li className="bkimg">
-      <h2>
+      <h3>
         {ground_humidity
           ? `I prefer my soil to be a ${ground_humidity}/10 on the dampness scale.`
           : null}
-      </h2>
-      <h2>
+      </h3>
+      <h3>
         {soil_nutriments > 5
           ? `I need rich soil.`
           : "I'm not that picky about my soil"}
-      </h2>
+      </h3>
       <h3>
         {soil_salinity
           ? `I can tolerate salt level of ${soil_salinity}/10`

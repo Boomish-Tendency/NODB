@@ -11,12 +11,12 @@ const GrowthInfo = (props) => {
   } = props.species;
   return (
     <li className="bkimg">
-      <h2>{light > 5 ? "I prefer it bright" : "I prefer some shade"}</h2>
-      <h2>
+      <h3>{light > 5 ? "I prefer it bright" : "I prefer some shade"}</h3>
+      <h3>
         {atmospheric_humidity > 5
           ? "I prefer a lot of rain"
           : "I prefer a little rain"}
-      </h2>
+      </h3>
       <h3>{ph_minimum ? `My ph minimum is: ${ph_minimum}` : null}</h3>
       <h3>{ph_maximum ? `My ph maximum is: ${ph_maximum}` : null}</h3>
       <h3>{growth_form ? `I grow from a ${growth_form}` : null}</h3>

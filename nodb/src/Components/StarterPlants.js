@@ -3,8 +3,8 @@ import axios from "axios";
 import BasicInfo from "./BasicInfo";
 
 class StarterPlants extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       displayArr: [],
@@ -22,7 +22,7 @@ class StarterPlants extends Component {
   render() {
     let display = [];
     display = this.state.displayArr.map((species) => (
-      <BasicInfo key={species.id} species={species} />
+      <BasicInfo key={species.id} species={species} saveToMyHousePlantsArr = {this.props.saveToMyHousePlantsArr} />
     ));
 
     return (

@@ -6,8 +6,8 @@ import Specifications from "./Specifications";
 import axios from "axios";
 
 class FeaturedPlant extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       search: "",
       holdingArr: [],
@@ -28,7 +28,7 @@ class FeaturedPlant extends Component {
     this.setState({
       ...this.state,
       search: search,
-    });
+      });
     console.log(search);
     axios
       .get(`/api/featured?search=${search}`)
@@ -40,29 +40,22 @@ class FeaturedPlant extends Component {
       })
       .catch((error) => console.log(error));
   };
-
-  //   changeHandler(e){
-  //     this.setState({
-  //         [e.target.name]: e.target.value
-  //     })
-  // }
-
+  
   render() {
-    //destructure
-
+  
     let display = [];
     display = this.state.holdingArr.map((species) => (
       <div>
-        <BasicInfo key={species.id} species={species} />
+        <BasicInfo key={species.id} species={species} saveToMyHousePlantsArr = {this.props.saveToMyHousePlantsArr}/>
         <img
           src={this.state.holdingArr[0].image_url}
           height="200"
           width="200"
           alt=""
         />
-        <GrowthInfo key={(species.id += 3)} species={species} />
-        <SoilProfile key={(species.id += 1)} species={species} />
-        <Specifications key={(species.id += 2)} species={species} />
+        <GrowthInfo key={(species.id +1)} species={species} />
+        <SoilProfile key={(species.id +2)} species={species} />
+        <Specifications key={(species.id +3)} species={species} />
       </div>
     ));
     return (

@@ -8,13 +8,16 @@ const BasicInfo = (props) => {
     genus,
     family_common_name,
   } = props.species;
+   
   return (
-    <li className="basicinfo">
+    <li className="basicinfo" onClick={(e) => 
+      props.saveToMyHousePlantsArr(e.target.value)}>
       <h2>{scientific_name ? scientific_name : null}</h2>
       <h2>{common_name ? common_name : null}</h2>
       <h3>{genus ? genus : null}</h3>
       <h3>{family_common_name ? family_common_name : null}</h3>
     </li>
+    
   );
 };
 

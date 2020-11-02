@@ -5,18 +5,18 @@ const Specifications = (props) => {
   let { average_height_cm, growth_habit, edible, vegetable } = props.species;
   return (
     <li className="bkimg">
-      <h2>
+      <h3>
         {average_height_cm
           ? `My average height is ${average_height_cm} centimeters`
           : null}
-      </h2>
-      <h2>{growth_habit ? `My growth habit is ${growth_habit}` : null}</h2>
+      </h3>
+      <h3>{growth_habit ? `My growth habit is ${growth_habit}` : null}</h3>
       <h3>
-        {edible
+        {edible == true
           ? "I am edible!"
           : "You should probably check with someone before eating me"}
       </h3>
-      <h3>{vegetable ? "I am a vegetable" : 'I am not a vegetable'}</h3>
+      <h3>{vegetable == true? "I am a vegetable" : 'I am not a vegetable'}</h3>
     </li>
   );
 };
