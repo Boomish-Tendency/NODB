@@ -9,15 +9,15 @@ const MyHousePlants = (props) => {
         <li
           onClick={(e) => {
             e.stopPropagation();
-            this.props.removeFromMyHousePlantsArr(e.target.value);
+            this.props.removeFromMyHousePlantsArr(myHousePlants[0]);
           }}
         >
-          {myHousePlants[0] ? myHousePlants[0] : null}
+          {myHousePlants[0] ? myHousePlants[0]  : null}
         </li>
         <li
           onClick={(e) => {
             e.stopPropagation();
-            this.props.removeFromMyHousePlantsArr(e.target.value);
+            this.props.removeFromMyHousePlantsArr(myHousePlants[1]);
           }}
         >
           {myHousePlants[1] ? myHousePlants[1] : null}
@@ -26,7 +26,7 @@ const MyHousePlants = (props) => {
         <li
           onClick={(e) => {
             e.stopPropagation();
-            this.props.removeFromMyHousePlantsArr(e.target.value);
+            this.props.removeFromMyHousePlantsArr(myHousePlants[2]);
           }}
         >
           {myHousePlants[2] ? myHousePlants[2] : null}
@@ -35,7 +35,7 @@ const MyHousePlants = (props) => {
         <li
           onClick={(e) => {
             e.stopPropagation();
-            this.props.removeFromMyHousePlantsArr(e.target.value);
+            this.props.removeFromMyHousePlantsArr(myHousePlants[3]);
           }}
         >
           {myHousePlants[3] ? myHousePlants[3] : null}
@@ -44,7 +44,7 @@ const MyHousePlants = (props) => {
         <li
           onClick={(e) => {
             e.stopPropagation();
-            this.props.removeFromMyHousePlantsArr(e.target.value);
+            this.props.removeFromMyHousePlantsArr(myHousePlants[4]);
           }}
         >
           {myHousePlants[4] ? myHousePlants[4] : null}

@@ -1,5 +1,5 @@
 const PlantList = require("./species.json");
-const myHousePlants = []; //empty array for saving favorite plants.
+let myHousePlants = []; //empty array for saving favorite plants.
 
 module.exports = {
   getInitial: (req, res) => {
@@ -33,7 +33,7 @@ module.exports = {
   addToHouse: (req, res) => {
     //destructure
     const { id } = req.params;
-    const newHousePlant = { ...PlantList.find((plant) => plant.id === +id) };
+    const newHousePlant = { ...PlantList.find((plant) => plant.id == id) };
     //set empty prop
     newHousePlant.room = "";
 

@@ -10,8 +10,8 @@ const BasicInfo = (props) => {
   } = props.species;
    
   return (
-    <li className="basicinfo" onClick={(e) => 
-      props.saveToMyHousePlantsArr(e.target.value)}>
+    <li className="basicinfo" onClick={() => 
+      props.saveToMyHousePlantsArr(props.species.id)}>
       <h2>{scientific_name ? scientific_name : null}</h2>
       <h2>{common_name ? common_name : null}</h2>
       <h3>{genus ? genus : null}</h3>
