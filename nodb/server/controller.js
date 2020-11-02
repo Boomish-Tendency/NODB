@@ -1,5 +1,6 @@
 const PlantList = require("./species.json");
 let myHousePlants = []; //empty array for saving favorite plants.
+let findPlant 
 
 module.exports = {
   getInitial: (req, res) => {
@@ -15,18 +16,18 @@ module.exports = {
     res.status(200).send(starterSampleArr);
     //Loop through length of species.json and return a random sample of plants for display by randomizing index of the array of objects.
   },
+
   getOnePlant: (req, res) => {
     //destructure
     const { search } = req.query;
-    const findPlant = PlantList.find(function (e,i) {
-   
-      return e.common_name === search
+    plantVar = PlantList.find(function (e, i) {
+      return e.common_name === search;
     });
-
+    findPlant = [plantVar]
     if (!findPlant) {
       res.status(500).send("Error: Plant Not Found.");
     }
-    res.status(200).send([findPlant]);
+    res.status(200).send(findPlant);
 
     //Using .find on species.json array to send a plant that matches the object found by the search input.
   },
@@ -34,23 +35,21 @@ module.exports = {
     //destructure
     const { id } = req.params;
     const newHousePlant = { ...PlantList.find((plant) => plant.id == id) };
-    //set empty prop
-    newHousePlant.room = "";
-    console.log(newHousePlant, res, res.data, id)
     myHousePlants.push(newHousePlant);
 
     res.status(200).send(myHousePlants);
     //Saves a selected plant to the myHousePlants array and sets an empty "room" property whose value may be added later.
   },
-  addRoomProp: (req, res) => {
+  changePhoto: (req, res) => {
     //destructure
-    const { index } = req.params;
-    const { room } = req.body;
-
-    myHousePlants[index].room = room;
-
-    res.status(200).send(myHousePlants);
-    //Adds a input value to the "room" property to selected object from myHousePlants array.  Plants in the same room should be grouped by similar light or temperature requirements.
+    const { id } = req.params;
+    const { inputbox } = req.body;
+    // console.log(inputbox)
+    // findPlant.splice(0,1,inputbox)
+   
+    findPlant[0].image_url = inputbox
+    res.status(200).send(findPlant);
+    //Adds a input value to the "room"  property to selected object from myHousePlants array.  Plants in the same room should be grouped by similar light or temperature requirements.
   },
   // getMyHousePlants: (req, res) => {
   //   res.status(200).send(myHousePlants);

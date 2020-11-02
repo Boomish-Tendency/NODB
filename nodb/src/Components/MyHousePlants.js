@@ -8,46 +8,42 @@ const MyHousePlants = (props) => {
       <ul className="middle">
         <li
           onClick={(e) => {
-            e.stopPropagation();
-            this.props.removeFromMyHousePlantsArr(myHousePlants[0]);
+            props.removeFromMyHousePlantsArr(myHousePlants[0]);
+            console.log(myHousePlants )
           }}
         >
-          {myHousePlants[0] ? myHousePlants[0]  : null}
+          {myHousePlants[0] ? myHousePlants[0].common_name  : null}
         </li>
         <li
           onClick={(e) => {
-            e.stopPropagation();
-            this.props.removeFromMyHousePlantsArr(myHousePlants[1]);
+            props.removeFromMyHousePlantsArr(myHousePlants[1]);
           }}
         >
-          {myHousePlants[1] ? myHousePlants[1] : null}
-        </li>
-
-        <li
-          onClick={(e) => {
-            e.stopPropagation();
-            this.props.removeFromMyHousePlantsArr(myHousePlants[2]);
-          }}
-        >
-          {myHousePlants[2] ? myHousePlants[2] : null}
+          {myHousePlants[1] ? myHousePlants[1].common_name : null}
         </li>
 
         <li
           onClick={(e) => {
-            e.stopPropagation();
-            this.props.removeFromMyHousePlantsArr(myHousePlants[3]);
+            props.removeFromMyHousePlantsArr(myHousePlants[2]);
           }}
         >
-          {myHousePlants[3] ? myHousePlants[3] : null}
+          {myHousePlants[2] ? myHousePlants[2].common_name : null}
         </li>
 
         <li
           onClick={(e) => {
-            e.stopPropagation();
-            this.props.removeFromMyHousePlantsArr(myHousePlants[4]);
+            props.removeFromMyHousePlantsArr(myHousePlants[3]);
           }}
         >
-          {myHousePlants[4] ? myHousePlants[4] : null}
+          {myHousePlants[3] ? myHousePlants[3].common_name : null}
+        </li>
+
+        <li
+          onClick={(e) => {
+            props.removeFromMyHousePlantsArr(myHousePlants[4]);
+          }}
+        >
+          {myHousePlants[4] ? myHousePlants[4].common_name : null}
         </li>
       </ul>
     </div>

@@ -11,6 +11,8 @@ class FeaturedPlant extends Component {
     this.state = {
       search: "",
       holdingArr: [],
+      inputbox: ""
+
     };
     this.inputRef = React.createRef();
   }
@@ -29,7 +31,6 @@ class FeaturedPlant extends Component {
       ...this.state,
       search: search,
       });
-    console.log(search);
     axios
       .get(`/api/featured?search=${search}`)
       .then((res) => {
@@ -40,19 +41,44 @@ class FeaturedPlant extends Component {
       })
       .catch((error) => console.log(error));
   };
+
+  changeHandler(e){
+    this.setState({
+        [e.target.name]: e.target.value
+    })
+}
+  changePicture = (e) => {
+    e.preventDefault()
+    let id = this.state.holdingArr[0].id 
+    let {inputbox} = this.state
+    axios
+      .put(`/api/featured/${id}`, {inputbox})
+      .then((res) => {
+        this.setState({ 
+          inputbox: res.data,
+          holdingArr: res.data, });
+      })
+      .catch((err) => console.log(err));
+    
+    }
   
   render() {
-  
+    console.log(this.state.inputbox)
     let display = [];
     display = this.state.holdingArr.map((species) => (
       <div>
         <BasicInfo key={species.id} species={species} saveToMyHousePlantsArr = {this.props.saveToMyHousePlantsArr}/>
-        <img
+        <a><img
           src={this.state.holdingArr[0].image_url}
           height="200"
           width="200"
           alt=""
         />
+        </a>
+        <form onSubmit={(e) => this.changePicture(e) } >
+          <input name="inputbox" type="text" placeholder = "Type a new image url here!" onChange={(e)=>this.changeHandler(e)}/>
+          <input type="submit" value="submit" />
+        </form>
         <GrowthInfo key={(species.id +1)} species={species} />
         <SoilProfile key={(species.id +2)} species={species} />
         <Specifications key={(species.id +3)} species={species} />

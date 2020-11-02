@@ -89,15 +89,26 @@ header {
   width: 25vw;
   height: auto;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content:flex-end;
   align-content: flex-end;
   list-style: none;
-  margin: 10px;
+  margin: 10px 0px 10px 0px;
   box-sizing: border-box;
   color: black;
   order: 1;
   border-radius: 5px;
+}
+.middle li {
+  border: 1px solid #ccc;
+  background-color: rgba(255,255,255, 0.5);
+  border-radius: 5px;
+  margin-bottom: 4px;
+  padding: 2px;
+}
+
+.middle li:hover{
+  background-color: red;
 }
 .myPlantsBox{
   background-image: url(https://images.unsplash.com/photo-1592178036823-ccb0e0e67562?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80);
@@ -109,6 +120,7 @@ header {
   justify-self: right;
   height: 500px;
 }
+
 
 
 .bkimg{
