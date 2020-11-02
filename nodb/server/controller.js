@@ -19,19 +19,14 @@ module.exports = {
     //destructure
     const { search } = req.query;
     const findPlant = PlantList.find(function (e,i) {
-      if(i<10){
-        console.log(e.common_name, search)
-      }
+   
       return e.common_name === search
     });
-    console.log(typeof(PlantList))
+
     if (!findPlant) {
       res.status(500).send("Error: Plant Not Found.");
     }
-    console.log(req.query)
-    console.log(PlantList[0])
-    // console.log(id)
-    res.status(200).send(findPlant);
+    res.status(200).send([findPlant]);
 
     //Using .find on species.json array to send a plant that matches the object found by the search input.
   },

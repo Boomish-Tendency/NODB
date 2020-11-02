@@ -16,7 +16,7 @@ const Specifications = (props) => {
           ? "I am edible!"
           : "You should probably check with someone before eating me"}
       </h3>
-      <h3>{vegetable ? "I am a vegetable" : null}</h3>
+      <h3>{vegetable ? "I am a vegetable" : 'I am not a vegetable'}</h3>
     </li>
   );
 };

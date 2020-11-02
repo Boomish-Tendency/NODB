@@ -38,12 +38,3 @@ class StarterPlants extends Component {
 
 export default StarterPlants;
 
-// handleInput = (e) => {
-//   this.setState({ searchInput: e.target.value });
-//   axios
-//     .get(`/api/pokemon?search=${e.target.value}`)
-//     .then((res) => {
-//       this.setState({ displayPokemon: res.data });
-//     })
-//     .catch((err) => console.log(err));
-// };
