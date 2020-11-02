@@ -36,7 +36,7 @@ module.exports = {
     const newHousePlant = { ...PlantList.find((plant) => plant.id == id) };
     //set empty prop
     newHousePlant.room = "";
-
+    console.log(newHousePlant, res, res.data, id)
     myHousePlants.push(newHousePlant);
 
     res.status(200).send(myHousePlants);

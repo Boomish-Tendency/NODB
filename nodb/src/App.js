@@ -19,15 +19,16 @@ class App extends Component {
   }
   saveToMyHousePlantsArr(id) {
     axios
-      .post(`/api/myHousePlants/${id}`)
+      .post(`/api/myhouseplants/${id}`)
       .then((res) => {
+        console.log(id)
         this.setState( {myHousePlants: res.data});
       })
       .catch((error) => console.log(error));
   }
   removeFromMyHousePlantsArr = (index) => {
     axios
-      .delete(`/api/myHousePlants/${index}`)
+      .delete(`/api/myhouseplants/${index}`)
       .then((res) => {
         this.setState({ myHousePlants: res.data });
       })
